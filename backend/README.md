@@ -1,4 +1,3 @@
-Here’s a more professional and polished version of your README file:
 
 ```markdown
 # **Event Booking System**
@@ -17,6 +16,29 @@ A robust and scalable backend application designed for managing an Event Booking
 - **Image Handling**: Upload and resize images for users, events, and categories.
 - **Advanced Querying**: Pagination, filtering, sorting, and search capabilities.
 - **Centralized Error Handling**: Streamlined error management for better debugging.
+
+---
+
+## **Most Used Packages**
+
+Here are the key packages used in this project and their purposes:
+
+| **Package**       | **Purpose**                                                                 |
+|--------------------|-----------------------------------------------------------------------------|
+| **express**        | Web framework for building RESTful APIs.                                   |
+| **mongoose**       | MongoDB object modeling for schema-based data management.                  |
+| **jsonwebtoken**   | Handling user authentication and authorization using JWT.                  |
+| **bcryptjs**       | Hashing passwords for secure storage.                                      |
+| **multer**         | Middleware for handling file uploads (e.g., images).                       |
+| **sharp**          | Image processing for resizing and optimizing uploaded images.              |
+| **dotenv**         | Loading environment variables from a `.env` file.                          |
+| **nodemailer**     | Sending emails for password resets and notifications.                      |
+| **express-validator** | Middleware for validating and sanitizing user input.                    |
+| **cors**           | Enabling Cross-Origin Resource Sharing for API access.                     |
+| **helmet**         | Securing HTTP headers for enhanced application security.                   |
+| **morgan**         | Logging HTTP requests for debugging and monitoring.                        |
+| **compression**    | Compressing HTTP responses to improve performance.                         |
+| **validator**      | Validating and sanitizing strings (e.g., email validation).                |
 
 ---
 
@@ -154,8 +176,8 @@ This project is licensed under the MIT License.
 For any inquiries or support, please contact:
 
 - **Name**: Abdalla Osamaa
-- **Email**: [your-email@example.com]
-- **GitHub**: [your-github-profile](https://github.com/your-profile)
+- **Email**: abdallaforjob@gmail.com
+- **GitHub**: github.com/Abdalla881e
 
 ---
 
@@ -163,5 +185,3 @@ For any inquiries or support, please contact:
 
 Special thanks to all contributors and open-source libraries that made this project possible.
 ```
-
-This version is more polished, professional, and structured for clarity. It includes sections for technologies, contributing, and acknowledgments, which are often expected in professional projects. You can replace placeholders like `<repository-url>` and `[your-email@example.com]` with actual values.This version is more polished, professional, and structured for clarity. It includes sections for technologies, contributing, and acknowledgments, which are often expected in professional projects. You can replace placeholders like `<repository-url>` and `[your-email@example.com]` with actual values.
