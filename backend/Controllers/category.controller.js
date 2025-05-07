@@ -10,7 +10,6 @@ import {
   deleteOne,
   updateOne,
 } from "./handle-factory.controller.js";
-
 import { uploadSingleImage } from "../Middleware/upload-image.middleware.js";
 
 // @desc    Upload user image

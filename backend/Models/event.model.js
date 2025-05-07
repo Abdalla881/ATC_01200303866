@@ -27,7 +27,7 @@ const eventSchema = new mongoose.Schema(
     },
     category: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Category",
+      ref: "category",
       required: true,
     },
     price: {
@@ -57,8 +57,11 @@ const eventSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-eventSchema.pre("save", function (next) {
-  this.populated({ path: "category", select: "name" });
+eventSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: "category",
+    select: "name -_id",
+  });
   next();
 });
 const Event = mongoose.model("Event", eventSchema);

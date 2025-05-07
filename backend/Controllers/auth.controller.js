@@ -58,6 +58,7 @@ export const login = asyncHandler(async (req, res, next) => {
 
 // @desc protect routes
 export const protect = asyncHandler(async (req, res, next) => {
+  //
   let token = req.headers.authorization.split(" ")[1];
 
   if (!token) {
