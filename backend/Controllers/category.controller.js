@@ -3,7 +3,6 @@ import sharp from "sharp";
 import { v4 as uuidv4 } from "uuid";
 
 import Category from "../Models/category.model.js";
-import ApiError from "../Utils/ApiError.js";
 import {
   createOne,
   getAll,
