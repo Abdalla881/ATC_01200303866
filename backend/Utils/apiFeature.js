@@ -19,7 +19,7 @@ class ApiFeature {
 
   paginate(countDocuments) {
     const page = this.queryString.page * 1 || 1;
-    const limit = this.queryString.limit * 1 || 2;
+    const limit = this.queryString.limit * 1 || 8;
     const skip = (page - 1) * limit;
     const endIndex = page * limit;
 
@@ -68,6 +68,7 @@ class ApiFeature {
       const regexQuery = {
         $or: [
           { title: { $regex: keyword, $options: "i" } },
+          { "category.name": { $regex: keyword, $options: "i" } },
           { description: { $regex: keyword, $options: "i" } },
         ],
       };

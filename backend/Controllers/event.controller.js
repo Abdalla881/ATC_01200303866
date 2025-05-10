@@ -3,6 +3,8 @@ import sharp from "sharp";
 import { v4 as uuidv4 } from "uuid";
 
 import Event from "../Models/event.model.js";
+import Category from "../Models/category.model.js";
+
 import {
   createOne,
   getAll,
@@ -13,6 +15,13 @@ import {
 
 import { uploadsMultiImage } from "../Middleware/upload-image.middleware.js";
 
+export const FilterObject = (req, res, next) => {
+  if (req.params.categoryId) {
+    req.filterObject = { category: req.params.categoryId };
+    console.log(req.filterObject);
+  }
+  next();
+};
 // This function enables uploading multiple images with different field names.
 export const uploadEventImage = uploadsMultiImage([
   { name: "imageCover", maxCount: 1 },
@@ -71,3 +80,25 @@ export const deleteEvent = deleteOne(Event);
 // @route   PUT /api/v1/events/:id
 // @access  privet (admin)
 export const updateEvent = updateOne(Event);
+
+// @desc    Get all Events by category
+// @route   GET /api/v1/events/category/:categoryName
+// @access  Public
+
+export const getEventsByCategory = asyncHandler(async (req, res, next) => {
+  const { categoryName } = req.params;
+
+  const category = await Category.findOne({ name: categoryName });
+  if (!category) {
+    return res
+      .status(404)
+      .json({ success: false, message: "Category not found" });
+  }
+
+  const events = await Event.find({ category: category._id });
+
+  res.status(200).json({
+    success: true,
+    data: events,
+  });
+});

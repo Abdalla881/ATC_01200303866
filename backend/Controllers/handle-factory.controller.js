@@ -21,6 +21,8 @@ export const getAll = (Model) =>
     if (req.filterObject) {
       filter = req.filterObject;
     }
+    console.log(filter);
+
     const countDocuments = await Model.countDocuments();
     const apifeature = new ApiFeature(Model.find(filter), req.query)
       .limitFields()

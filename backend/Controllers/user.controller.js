@@ -86,3 +86,19 @@ export const changePassword = asyncHandler(async (req, res, next) => {
 // @route   DELETE /api/v1/users/:id
 // @access  Public
 export const deleteUser = deleteOne(User);
+
+// @desc    Get current user profile
+// @route   GET /api/v1/users/me
+// @access  Private
+export const getMe = asyncHandler(async (req, res, next) => {
+  const user = await User.findById(req.user._id);
+  if (!user) {
+    return next(new ApiError("User not found", 404));
+  }
+  res.status(200).json({
+    success: true,
+    data: user,
+  });
+});
+
+

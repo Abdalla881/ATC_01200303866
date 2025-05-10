@@ -30,7 +30,7 @@ router
     createCategoryValidator,
     createCateory
   )
-  .get(protect, AllowTo("admin"), getAllCategory);
+  .get(getAllCategory);
 
 router
   .route("/:id")

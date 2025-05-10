@@ -9,6 +9,8 @@ import {
   updateEvent,
   uploadEventImage,
   resizeImage,
+  FilterObject,
+  getEventsByCategory,
 } from "../Controllers/event.controller.js";
 
 import { protect, AllowTo } from "../Controllers/auth.controller.js";
@@ -16,7 +18,9 @@ import { protect, AllowTo } from "../Controllers/auth.controller.js";
 router
   .route("/")
   .post(protect, AllowTo("admin"), uploadEventImage, resizeImage, createEvent)
-  .get(protect, AllowTo("admin"), getAllEvent);
+  .get(getAllEvent);
+
+router.get("/category/:categoryId", FilterObject, getAllEvent); // ✅ this line
 
 router
   .route("/:id")

@@ -1,5 +1,8 @@
 import express from "express";
 import "dotenv/config";
+import cors from "cors";
+import path from "path";
+import { fileURLToPath } from "url";
 console.log(process.env.PORT);
 
 import dbConnection from "./Config/dbConnection.js";
@@ -10,6 +13,18 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use("/uploads", express.static("uploads/Events"));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 
 if (process.env.NODE_ENV !== "production") {
   const morgan = await import("morgan");

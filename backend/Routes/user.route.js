@@ -10,6 +10,7 @@ import {
   uploadUserImage,
   resizeImage,
   changePassword,
+  getMe,
 } from "../Controllers/user.controller.js";
 import {
   createUserValidator,
@@ -20,6 +21,9 @@ import {
 } from "../Utils/validators/user.validators.js";
 
 import { protect, AllowTo } from "../Controllers/auth.controller.js";
+
+// Get current user profile
+router.get("/me", protect, getMe);
 
 router.put(
   "/change-password",
