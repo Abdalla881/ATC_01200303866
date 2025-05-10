@@ -54,7 +54,7 @@ client/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/egy-events.git
+   git clone https://github.com/Abdalla881/Nodejs-Events-Booking-System.git
    cd egy-events/client
    ```
 
@@ -180,7 +180,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👥 Authors
 
-- Your Name - Initial work - [YourGitHub](https://github.com/yourusername)
+- Abdalla Osama - Initial work - https://github.com/Abdalla881
 
 ## 🙏 Acknowledgments
 
