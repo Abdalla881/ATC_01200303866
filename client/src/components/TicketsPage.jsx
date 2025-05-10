@@ -15,7 +15,7 @@ const TicketsPage = () => {
   const [categoriesError, setCategoriesError] = useState(null);
   const navigate = useNavigate();
 
-  const baseUrl = "http://localhost:5001/api/v1/events";
+  const baseUrl = "https://egy-events.vercel.app/api/v1/events";
   const apiUrl = categoryId ? `${baseUrl}/category/${categoryId}` : baseUrl;
 
   const {

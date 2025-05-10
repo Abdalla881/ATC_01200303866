@@ -9,7 +9,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import TicketsPage from "./components/TicketsPage";
 import Cart from "./components/Cart";
-import UnderProcessingPage from "./components/UnderProcessingPage";  // <-- Import the new page
+import UnderProcessingPage from "./components/UnderProcessingPage"; // <-- Import the new page
 
 const router = createBrowserRouter([
   {
@@ -38,8 +38,8 @@ const router = createBrowserRouter([
     element: <Cart />,
   },
   {
-    path: "/under-processing",  // <-- Add this route
-    element: <UnderProcessingPage />,  // <-- Set the component to render
+    path: "/under-processing", // <-- Add this route
+    element: <UnderProcessingPage />, // <-- Set the component to render
   },
 ]);
 

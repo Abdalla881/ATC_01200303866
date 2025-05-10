@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Ticket from "./Ticket";
 import { useState, useEffect } from "react";
 
-const url = "http://localhost:5001/api/v1/events"; // Add "http://" to the URL
+const url = "https://egy-events.vercel.app/api/v1/events"; // Add "http://" to the URL
 const FeaturedTicket = () => {
   const [tickets, setTickets] = useState([]);
 

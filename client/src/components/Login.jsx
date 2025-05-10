@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const url = "http://localhost:5001/api/v1/auth/login";
+const url = "https://egy-events.vercel.app/api/v1/auth/login";
 
 const Login = () => {
   const [inputs, setInputs] = useState({
