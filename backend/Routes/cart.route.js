@@ -6,7 +6,7 @@ import {
   updateLoggedCart,
   removeItemFromCart,
   clearCart,
-} from "../controllers/cart.controller.js";
+} from "../Controllers/cart.controller.js";
 
 import { protect, AllowTo } from "../Controllers/auth.controller.js";
 
