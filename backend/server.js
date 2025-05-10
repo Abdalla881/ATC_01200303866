@@ -32,6 +32,10 @@ if (process.env.NODE_ENV !== "production") {
   console.log(`Mode : ${process.env.NODE_ENV}`);
 }
 
+// Example API route
+app.get("/api/hello", (req, res) => {
+  res.json({ message: "Hello from Express" });
+});
 // Mount Routes
 MountRoute(app);
 
