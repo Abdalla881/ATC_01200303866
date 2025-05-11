@@ -6,7 +6,9 @@ const Ticket = ({ title, desc, price, imageCover }) => {
   const navigate = useNavigate();
 
   const isLoggedIn = localStorage.getItem("userToken") !== null;
-  const imageUrl = `http://localhost:5001/uploads/${imageCover}`;
+
+  // الصورة من Cloudinary مباشرة
+  const imageUrl = imageCover;
 
   const handleIncrement = () => {
     setQuantity((prev) => prev + 1);

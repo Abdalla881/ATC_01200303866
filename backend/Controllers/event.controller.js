@@ -4,6 +4,10 @@ import { v4 as uuidv4 } from "uuid";
 
 import Event from "../Models/event.model.js";
 import Category from "../Models/category.model.js";
+import {
+  uploadToCloudinary,
+  deleteImageFromCloudinary,
+} from "../Middleware/upload-image.middleware.js";
 
 import {
   createOne,
@@ -29,30 +33,62 @@ export const uploadEventImage = uploadsMultiImage([
 ]);
 
 export const resizeImage = asyncHandler(async (req, res, next) => {
-  if (req.files.imageCover) {
-    const imageCoverName = `event-${uuidv4()}-${Date.now()}-cover.jpeg`;
-    await sharp(req.files.imageCover[0].buffer)
-      .resize(2000, 1333)
-      .toFormat("jpeg")
-      .jpeg({ quality: 90 })
-      .toFile(`uploads/Events/${imageCoverName}`);
-    req.body.imageCover = imageCoverName;
+  // Handle imageCover: Delete old image and upload new one
+  if (req.body.imageCover?.public_id) {
+    // Delete old image
+    await deleteOldImage(req.body.imageCover.public_id);
   }
-  if (req.files.images) {
-    await Promise.all(
-      req.files.images.map(async (img, index) => {
-        req.body.images = [];
-        const imageName = `event-${uuidv4()}-${Date.now()}-${index + 1}.jpeg`;
 
-        await sharp(img.buffer)
-          .resize(600, 600)
-          .toFormat("jpeg")
-          .jpeg({ quality: 90 })
-          .toFile(`uploads/Events/${imageName}`);
-        req.body.images.push(imageName);
+  if (req.files.imageCover) {
+    const filename = `event-${uuidv4()}-cover`;
+    const buffer = await sharp(req.files.imageCover[0].buffer)
+      .resize(2000, 1333)
+      .jpeg({ quality: 90 })
+      .toBuffer();
+
+    const uploadedCover = await uploadToCloudinary(buffer, filename, "Events");
+
+    req.body.imageCover = uploadedCover.secure_url;
+    req.body.imageCoverPublicId = uploadedCover.public_id;
+  }
+
+  // Handle images: Delete old images and upload new ones
+  if (req.body.images?.length) {
+    await Promise.all(
+      req.body.images.map(async (img) => {
+        if (img?.public_id) {
+          // Delete old image
+          await deleteOldImage(img.public_id);
+        }
       })
     );
   }
+
+  if (req.files.images) {
+    req.body.images = [];
+
+    await Promise.all(
+      req.files.images.map(async (img, index) => {
+        const filename = `event-${uuidv4()}-${index + 1}`;
+        const buffer = await sharp(img.buffer)
+          .resize(600, 600)
+          .jpeg({ quality: 90 })
+          .toBuffer();
+
+        const uploadedImage = await uploadToCloudinary(
+          buffer,
+          filename,
+          "Events"
+        );
+
+        req.body.images.push({
+          url: uploadedImage.secure_url,
+          public_id: uploadedImage.public_id,
+        });
+      })
+    );
+  }
+
   next();
 });
 

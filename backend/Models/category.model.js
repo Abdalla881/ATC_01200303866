@@ -16,6 +16,10 @@ const categorySchema = new mongoose.Schema(
       type: String,
       required: [true, "Please provide an image"],
     },
+    imagePublicId: {
+      type: String,
+      required: [true, "Please provide an image public id"],
+    },
   },
   {
     timestamps: true,

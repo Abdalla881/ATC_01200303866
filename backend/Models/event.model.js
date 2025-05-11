@@ -51,8 +51,17 @@ const eventSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    imageCoverPublicId: {
+      type: String,
+      required: true,
+    },
 
-    images: [String],
+    images: [
+      {
+        url: String,
+        publicId: String,
+      },
+    ],
   },
   { timestamps: true }
 );

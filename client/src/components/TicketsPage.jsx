@@ -200,7 +200,7 @@ const TicketsPage = () => {
                     >
                       {category.image && (
                         <img
-                          src={`http://localhost:5001/uploads/Categories/${category.image}`}
+                          src={category.image}
                           alt={category.name}
                           className="w-8 h-8 rounded-full mr-3 object-cover"
                         />
