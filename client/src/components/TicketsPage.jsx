@@ -33,7 +33,7 @@ const TicketsPage = () => {
       setCategoriesLoading(true);
       try {
         const response = await axios.get(
-          "http://localhost:5001/api/v1/categories"
+          "https://egy-events.vercel.app/api/v1/categories"
         );
         setCategories(response.data.data || []);
         setCategoriesError(null);
