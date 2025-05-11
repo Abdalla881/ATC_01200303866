@@ -1,4 +1,3 @@
-
 # Booking System
 
 A full-stack booking system application that allows users to browse and book events. The project is divided into two main parts: **Frontend** and **Backend**. Each part has its own detailed README.md file for more information.
@@ -13,6 +12,7 @@ A full-stack booking system application that allows users to browse and book eve
 - Setup Instructions
 - Frontend
 - Backend
+- Demo
 - License
 
 ---
@@ -82,7 +82,7 @@ Booking System/
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/Abdalla881/Nodejs-Events-Booking-System.git
+   git clone  https://github.com/Abdalla881/ATC_01200303866.git
    cd booking-system
    ```
 
@@ -145,6 +145,13 @@ For more details, refer to the `README.md` file in the `backend` folder.
 
 ---
 
+## Demo
+
+You can view the live demo of the application here:  
+[https://egy-events-frontend.vercel.app/](https://egy-events-frontend.vercel.app/)
+
+---
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
@@ -174,10 +181,15 @@ For more details, refer to the `README.md` file in the `backend` folder.
 
 ---
 
+## Demo
+
+You can view the live demo of the application here:  
+[https://egy-events-frontend.vercel.app/](https://egy-events-frontend.vercel.app/)
+
+---
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
 
 ---
-
-Let me know if you need further customization!
